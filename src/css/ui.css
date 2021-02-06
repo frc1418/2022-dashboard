@@ -1,0 +1,413 @@
+/* Top-level interface panels */
+body > * {
+    padding: 10px;
+    position: fixed;
+    overflow: scroll;
+}
+
+/* Specific buttons and inputs */
+#refresh {
+    height: 29px;
+    top: 1vh;
+    margin-top: 1vh;
+    width: 2.5vw;
+}
+
+.camera-refresh {
+    height: 29px;
+    position: absolute;
+    top: 30px;
+}
+
+.camera-options {
+    position: absolute;
+    top: 40vw;
+}
+
+/* Timer */
+@font-face {
+    font-family: 'DS-Digital';
+    src: local('DS-Digital'), url('../../digital.ttf') format('truetype');
+    unicode-range: U+0030—003A;
+}
+#timer {
+    font-family: 'DS-Digital', monospace;
+    display: block;
+    font-size: 13vh;
+    line-height: .8;
+}
+
+#controlPanelImg {
+    align-content: center;
+    position: absolute;
+    bottom: 130px;
+    height: 100px;
+    width: 100px;
+}
+
+#launcher-rpm {
+    font-size: 10vh;
+    position: absolute;
+    bottom: 50px;
+}
+
+#target-svg {
+    bottom: 0px;
+    right: 0px;
+}
+
+.target {
+    stroke-width: 10px;
+    stroke: rgb(230, 0, 0);
+}
+
+#target-message {
+    text-anchor: middle;
+    stroke-width: 1px;
+    fill: rgb(230, 0, 0);
+}
+
+.target-X {
+    visibility: visible;
+    stroke-width: 10px;
+    stroke: rgb(230, 0, 0);
+}
+
+.target-check {
+    visibility: hidden;
+    stroke-width: 10px;
+    stroke: rgb(0, 235, 0);
+}
+
+/* Connected/Disconnected readout superimposed over dashboard */
+#robot-state {
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    font-size: 150px;
+    padding-top: 150px;
+    text-align: center;
+    z-index: 3;
+    background: #333;
+    color: #222;
+}
+#robot-state:empty {
+    display: none;
+}
+
+/* Colors for timer in different stages of expiry */
+.high { color: #42C752; }
+.med  { color: #FFEB3B; }
+.low  { color: #D32F2F; }
+
+/* Cameras */
+.camera {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    /* 50 : 37.5 = 4 : 3 (Ratio) */
+    width: 50%;
+    height: 37.5vw;
+    background-size: contain;
+    background-color: #333;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.camera > .stream {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.camera img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0px auto;
+}
+.camera img.icon {
+    height: 100px;
+    width: 100px;
+    /* 50px is half the height of the spinner */
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+}
+.crosshair {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    /* 20px is half the height of the SVG */
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+}
+.crosshair * {
+    stroke: red;
+    fill: none;
+    stroke-width: 3px;
+}
+#camera-flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+}
+.gutter-horizontal {
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: ew-resize;
+    height: 37.5vw;
+    margin: 0px auto;
+    opacity: 0.3;
+}
+
+#balls-indicator-left {
+    position: absolute;
+    right: 0;
+}
+
+#balls-indicator-right {
+    position: absolute;
+    left: 0;
+}
+
+.balls-bar {
+    fill: rgb(0, 235, 0);
+    stroke-width: 0px;
+}
+
+.balls-background {
+    fill: rgb(230, 0, 0);
+    stroke-width: 0px;
+}
+
+/* Auto */
+#auto-warning {
+    display: none;
+    color: red;
+}
+#auto {
+    width: 50vw;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background: inherit;
+}
+#field, #field svg {
+    width: calc(54 * 8px);
+    height: calc(27 * 8px);
+}
+#field svg {
+    margin-bottom: calc(-27 * 8px);
+}
+#field svg rect {
+    color: red;
+}
+#auto-modes {
+    width: 300px;
+    height: 300px;
+}
+#auto-modes svg {
+    position: relative;
+    bottom: 20px;
+    right: 100px;
+}
+#auto-options {
+    position: relative;
+    left: 50px;
+}
+#field-position input, #auto-modes select, #auto-modes input {
+    margin: 5px;
+    margin-top: 10px;
+}
+#fetch, #ball {
+    position: relative;
+    display: block;
+}
+#replay-auto {
+    position: relative;
+    margin-top: 5px;
+    display: none;
+}
+#replay-auto label {
+    margin-right: 5px;
+}
+
+/* Panel with timer, buttons, and certain small components */
+article {
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+/* General SVG styling */
+svg * {
+    stroke: white;
+    fill: #333;
+    stroke-width: 2;
+    transform-origin: center;
+}
+text {
+    letter-spacing: 2px;
+    stroke: none;
+    fill: white;
+}
+#eye * {
+    z-index: 100;
+    display: inline-block;
+    margin-top: 20px;
+}
+#eye.on * {
+    stroke: green;
+}
+#eye.off * {
+    stroke: grey;
+}
+/* Gyro */
+#gyro {
+    top: 0;
+    right: 0;
+}
+#gyro-arm {
+    fill: lightblue;
+    stroke: darkblue;
+    transform-origin: calc(50% + 5px) calc(50% + 5px);
+}
+#gyro-number {
+    font-size: 20px;
+    text-anchor: middle;
+}
+
+/* Robot diagram */
+#robot-diagram {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#robot-tower {
+    transition: 0.2s;
+}
+#robot-manipulator {
+}
+#hatch-manipulation-diagram {
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+.ball {
+    fill: #FF8300;
+}
+#team-number {
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+
+/* Hide everything but cameras when enabled */
+body.enabled article,
+body.enabled > svg {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+#status {
+    display: inline-block;
+    padding: 6px 8px;
+    background-color: #D32F2F;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
+    border-radius: 50%;
+    margin: 0px;
+    margin-left: 3px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#message-button {
+    position: absolute;
+    top: 40vw;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#message-text {
+    text-align: center;
+    color: rgb(0, 235, 0);
+    font-size: 5vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#target-pitch-angle {
+    text-anchor: middle;
+}
+
+#compressor-status {
+    color: rgb(0, 235, 0);
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#compressor-status.off {
+    color: rgb(230, 0, 0);
+}
+
+.back-camera {
+    opacity: 50%;
+}
+
+.spinningRot {
+    animation: spin-color-panel-Rot 0.5s linear infinite forwards;
+}
+
+.spinningPos {
+    animation: spin-color-panel-Pos 1s infinite forwards;
+}
+
+.expandPanel {
+    animation: expand-color-panel 1s linear normal;
+}
+
+.shrinkPanel {
+    animation: expand-color-panel 1s linear reverse;
+}
+
+@keyframes expand-color-panel {
+    from {
+        transform: scale(0.1, 0.1);
+    }
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes spin-color-panel-Pos {
+    0% {
+        transform: rotate(-22.5deg);
+    }
+    50% {
+        transform: rotate(22.5deg);
+    }
+    100% {
+        transform: rotate(-22.5deg);
+    }
+
+}
+
+@keyframes spin-color-panel-Rot {
+    from {
+        scale: 10%;
+    }
+    to {
+        scale: 100%;
+    }
+}

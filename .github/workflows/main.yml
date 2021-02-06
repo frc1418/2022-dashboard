@@ -1,0 +1,58 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Package Applications
+        run: |
+          npm run package-win
+          npm run package-mac
+      - name: Zip Applications
+        run: |
+          Compress-Archive ${{ github.workspace }}\dist\1418-dashboard-2020-darwin-x64 ${{ github.workspace }}\1418-dashboard-2020-darwin-x64.zip
+      - name: Build Project Windows
+        run: node create-windows-installer.js ${GITHUB_REF##*/}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - Auto generated installer
+          draft: false
+          prerelease: false
+      - name: Upload Windows Installer
+        id: upload-windows-installer 
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}\Dashboard-Setup.exe
+          asset_name: Dashboard-Setup-Windows.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
+      - name: Upload Release Asset MacOS
+        id: upload-release-asset-macos
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}\1418-dashboard-2020-darwin-x64.zip
+          asset_name: 1418-dashboard-2020-macos.zip
+          asset_content_type: application/zip
