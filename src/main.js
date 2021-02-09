@@ -22,6 +22,7 @@ const ipc = electron.ipcMain;
 
 const robotIp = '10.14.18.2';
 const simIp = '127.0.0.1';
+const isWin = process.platform === "win32";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -48,7 +49,7 @@ let clientDataListener = (key, val, valType, mesgType, id, flags) => {
 };
 function createWindow() {
     // Attempt to connect to the localhost
-    if (false)
+    if (!isWin)
     {
         client.start((con, err) => {
             let connectFunc = () => {
