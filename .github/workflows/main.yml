@@ -20,7 +20,7 @@ jobs:
           npm run package-mac
       - name: Zip Applications
         run: |
-          Compress-Archive ${{ github.workspace }}\dist\1418-dashboard-2020-darwin-x64 ${{ github.workspace }}\1418-dashboard-2020-darwin-x64.zip
+          Compress-Archive ${{ github.workspace }}\dist\1418-dashboard-2021-darwin-x64 ${{ github.workspace }}\1418-dashboard-2021-darwin-x64.zip
       - name: Build Project Windows
         run: node create-windows-installer.js ${GITHUB_REF##*/}
       - name: Create Release
@@ -53,6 +53,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}\1418-dashboard-2020-darwin-x64.zip
-          asset_name: 1418-dashboard-2020-macos.zip
+          asset_path: ${{ github.workspace }}\1418-dashboard-2021-darwin-x64.zip
+          asset_name: 1418-dashboard-2021-macos.zip
           asset_content_type: application/zip
