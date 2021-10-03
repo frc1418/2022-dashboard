@@ -31,9 +31,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - Auto generated installer
+          body: "Changes in this release:\n - ${{ join(github.event.commits.*.message, '\n - ') }}"
           draft: false
           prerelease: false
       - name: Upload Windows Installer
