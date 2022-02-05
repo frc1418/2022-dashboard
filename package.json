@@ -1,5 +1,5 @@
 {
-  "name": "1418-dashboard-2021",
+  "name": "1418-dashboard-2022",
   "version": "1.0.0",
   "description": "2021 driving dashboard",
   "main": "src/main.js",
@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/frc1418/2021-dashboard#readme",
   "devDependencies": {
-    "electron": "^9.4.0",
-    "electron-packager": "^14.1.1",
+    "electron": "^17.0.0",
+    "electron-packager": "^15.4.0",
     "electron-winstaller": "^4.0.0",
     "rcedit": "^2.1.0"
   },
