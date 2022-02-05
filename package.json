@@ -1,7 +1,7 @@
 {
   "name": "1418-dashboard-2022",
   "version": "1.0.0",
-  "description": "2021 driving dashboard",
+  "description": "2022 driving dashboard",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frc1418/2021-dashboard.git"
+    "url": "git+https://github.com/frc1418/2022-dashboard.git"
   },
   "author": "Team 1418",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/frc1418/2021-dashboard/issues"
+    "url": "https://github.com/frc1418/2022-dashboard/issues"
   },
-  "homepage": "https://github.com/frc1418/2021-dashboard#readme",
+  "homepage": "https://github.com/frc1418/2022-dashboard#readme",
   "devDependencies": {
     "electron": "^17.0.0",
     "electron-packager": "^15.4.0",
