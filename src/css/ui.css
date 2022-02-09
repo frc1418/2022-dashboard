@@ -36,14 +36,14 @@ body > * {
     font-size: 13vh;
     line-height: .8;
 }
-
+/*
 #controlPanelImg {
     align-content: center;
     position: absolute;
     bottom: 130px;
     height: 100px;
     width: 100px;
-}
+} */
 
 #launcher-rpm {
     font-size: 10vh;

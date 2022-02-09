@@ -38,7 +38,7 @@ const statusElement = document.getElementById('status');
 const launcherRPM = document.getElementById('launcher-rpm');
 const targetMessage = document.getElementById('target-message');
 const gyroArm = document.getElementById('gyro-arm');
-const controlPanelImg = document.getElementById('controlPanelImg');
+//const controlPanelImg = document.getElementById('controlPanelImg');
 const cameraRefresh1 = document.getElementById('camera1-refresh');
 const cameraRefresh2 = document.getElementById('camera2-refresh');
 const ballsIndicatorBar = document.getElementsByClassName("balls-bar");
@@ -248,37 +248,37 @@ NetworkTables.addKeyListener('/components/launcher/filtered_rpm', (_, value, __)
     launcherRPM.style.color = 'rgb(' + r + ' , ' + g + ' , ' + b + ')'
 });
 
-NetworkTables.addKeyListener('/Controllers/panelSpinner/isSpinningRotation', (_, value, __) => {
-    if (value) {
-        controlPanelImg.classList.add('spinningRot');
-    } else {
-        controlPanelImg.classList.remove('spinningRot');
-    }
-});
+// NetworkTables.addKeyListener('/Controllers/panelSpinner/isSpinningRotation', (_, value, __) => {
+//     if (value) {
+//         controlPanelImg.classList.add('spinningRot');
+//     } else {
+//         controlPanelImg.classList.remove('spinningRot');
+//     }
+// });
 
-NetworkTables.addKeyListener('/Controllers/panelSpinner/isSpinningPosition', (_, value, __) => {
-    if (value) {
-        controlPanelImg.classList.add('spinningPos');
-    } else {
-        controlPanelImg.classList.remove('spinningPos');
-    }
-});
+// NetworkTables.addKeyListener('/Controllers/panelSpinner/isSpinningPosition', (_, value, __) => {
+//     if (value) {
+//         controlPanelImg.classList.add('spinningPos');
+//     } else {
+//         controlPanelImg.classList.remove('spinningPos');
+//     }
+// });
 
-NetworkTables.addKeyListener('/robot/ntSolenoid_state', (_, value, __) => {
-    if (value == true) {
-        controlPanelImg.classList.add('expandPanel');
-        setTimeout(() => {
-            controlPanelImg.style.transform = 'scale(1, 1)';
-            controlPanelImg.classList.remove('expandPanel');
-        }, 1000)
-    } else {
-        controlPanelImg.classList.add('shrinkPanel');
-        setTimeout(() => {
-            controlPanelImg.style.transform = 'scale(0.1, 0.1)';
-            controlPanelImg.classList.remove('shrinkPanel');
-        }, 1000)
-    }
-});
+// NetworkTables.addKeyListener('/robot/ntSolenoid_state', (_, value, __) => {
+//     if (value == true) {
+//         controlPanelImg.classList.add('expandPanel');
+//         setTimeout(() => {
+//             controlPanelImg.style.transform = 'scale(1, 1)';
+//             controlPanelImg.classList.remove('expandPanel');
+//         }, 1000)
+//     } else {
+//         controlPanelImg.classList.add('shrinkPanel');
+//         setTimeout(() => {
+//             controlPanelImg.style.transform = 'scale(0.1, 0.1)';
+//             controlPanelImg.classList.remove('shrinkPanel');
+//         }, 1000)
+//     }
+// });
 
 NetworkTables.addKeyListener('/components/intake/ballsCollected', (_, value, __) => {
     for (let element of ballsIndicatorBar) {
