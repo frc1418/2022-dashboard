@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "requirejs": "^2.3.6",
     "split.js": "^1.5.11",
     "wpilib-nt-client": "^1.7.1"
   }
