@@ -271,10 +271,10 @@ NetworkTables.addKeyListener('/limelight/ty', (_, value, __) => {
 
 NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
     if (value) {
-        compressorStatus.classList.remove('off');
+        compressorStatus.classList.remove('ext');
         compressorStatus.textContent = 'Compressor: ON';
     } else {
-        compressorStatus.classList.add('off');
+        compressorStatus.classList.add('ext');
         compressorStatus.textContent = 'Compressor: OFF';
     }
 });
