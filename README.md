@@ -1,7 +1,7 @@
-# 2021 Dashboard
-[Robot Code](https://github.com/frc1418/2021-robot) | **Dashboard**
+# 2022 Dashboard
+[Robot Code](https://github.com/frc1418/2022-robot) | **Dashboard**
 
-> 1418's 2021 driving dashboard, built off of the [FRC Dashboard](https://github.com/FRCDashboard/FRCDashboard) web driving dashboard framework.
+> 1418's 2022 driving dashboard, built off of the [FRC Dashboard](https://github.com/FRCDashboard/FRCDashboard) web driving dashboard framework.
 
 ## Setup
 ### Dependencies

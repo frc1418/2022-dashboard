@@ -37,14 +37,6 @@ body > * {
     line-height: .8;
 }
 
-#controlPanelImg {
-    align-content: center;
-    position: absolute;
-    bottom: 130px;
-    height: 100px;
-    width: 100px;
-}
-
 #launcher-rpm {
     font-size: 10vh;
     position: absolute;
@@ -292,8 +284,7 @@ text {
 #robot-tower {
     transition: 0.2s;
 }
-#robot-manipulator {
-}
+
 #hatch-manipulation-diagram {
     top: 0;
     left: 0;

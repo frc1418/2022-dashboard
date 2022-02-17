@@ -118,7 +118,8 @@ function createWindow() {
         icon: __dirname + '/../images/icon.png',
         // Security additions and electron 5.0+ compatibility
 	    webPreferences: {
-    	    nodeIntegration: true
+    	    nodeIntegration: true,
+            contextIsolation: false
   	    }
     });
     // Move window to top (left) of screen.
