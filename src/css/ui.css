@@ -352,6 +352,16 @@ body.enabled > svg {
     color: rgb(230, 0, 0);
 }
 
+#piston-status {
+    color: rgb(230, 0, 0);
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#piston-status.ext {
+    color: rgb(0, 235, 0);
+}
+
 .back-camera {
     opacity: 50%;
 }
