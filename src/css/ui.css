@@ -21,7 +21,7 @@ body > * {
 
 .camera-options {
     position: absolute;
-    top: 40vw;
+    top: 38vw;
 }
 
 /* Timer */
@@ -40,7 +40,7 @@ body > * {
 #launcher-rpm {
     font-size: 10vh;
     position: absolute;
-    bottom: 50px;
+    bottom: 5px;
 }
 
 #target-svg {
