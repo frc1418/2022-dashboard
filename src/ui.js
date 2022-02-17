@@ -272,20 +272,20 @@ NetworkTables.addKeyListener('/limelight/ty', (_, value, __) => {
 
 NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
     if (value) {
-        compressorStatus.classList.remove('ext');
+        compressorStatus.classList.remove('off');
         compressorStatus.textContent = 'Compressor: ON';
     } else {
-        compressorStatus.classList.add('ext');
+        compressorStatus.classList.add('off');
         compressorStatus.textContent = 'Compressor: OFF';
     }
 });
 
 NetworkTables.addKeyListener('/robot/piston_status', (_, value, __) => {
     if (value) {
-        pistonStatus.classList.remove('off');
+        pistonStatus.classList.remove('ext');
         pistonStatus.textContent = 'Intake: RETRACTED';
     } else {
-        pistonStatus.classList.add('off');
+        pistonStatus.classList.add('ext');
         pistonStatus.textContent = 'Intake: EXTENDED';
     }
 });
