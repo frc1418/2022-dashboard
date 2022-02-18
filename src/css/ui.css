@@ -13,10 +13,18 @@ body > * {
     width: 2.5vw;
 }
 
-.camera-refresh {
+.camera-refresh1 {
     height: 29px;
     position: absolute;
     top: 30px;
+    left: 22%;
+}
+
+.camera-refresh2 {
+    height: 29px;
+    position: absolute;
+    top: 30px;
+    right: 22%;
 }
 
 .camera-options {
