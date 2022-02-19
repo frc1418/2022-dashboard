@@ -47,6 +47,7 @@ const pitchAngleText = document.getElementById('target-pitch-angle');
 const camera1OptionSelect = document.getElementById("camera1-options-select");
 const camera2OptionSelect = document.getElementById("camera2-options-select");
 const compressorStatus = document.getElementById('compressor-status');
+const pistonStatus = document.getElementById('piston-status');
 
 cameras[cameraStream1].setParent(document.getElementById('camera1'));
 cameras[cameraStream2].setParent(document.getElementById('camera2'));
@@ -138,13 +139,12 @@ messageButton.addEventListener('click', () => {
         "Detroit, here we come!",
         "Use the force and win!",
         "Do, there is neither do not nor try",
+        "Maybe we should just ziptie this program",
         "Robotics is fun!",
         "Robotics IS a sport!",
         "Victory we most certainly have!",
         "History goes to the (vae) Victors!",
-        "Sarah is totally the best captain!",
-        "Sofia is totally the best captain!",
-        "Tahaseen is totally the best captain!",
+        "Bobby is totally the best captain! (he's the only one)",
         "Steven is our Knight is shining armor!",
         "Jesus loves you",
         "You're a terrible driver!",
@@ -240,7 +240,7 @@ NetworkTables.addKeyListener('/components/launcher/filtered_rpm', (_, value, __)
     
     var target = NetworkTables.getValue('/components/launcher/target_rpm');
     var redDistance = 500;
-    launcherRPM.textContent = value + " RPM";
+    launcherRPM.textContent = "Laucher: " + value + " RPM";
 
     //sets text color to a color on an hsv gradient between red (0, 100, 90) and green (120, 100, 94)
     let [r, g, b] = sampleHSVGradient(target, redDistance, value)
@@ -276,6 +276,16 @@ NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
     } else {
         compressorStatus.classList.add('off');
         compressorStatus.textContent = 'Compressor: OFF';
+    }
+});
+
+NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) => {
+    if (value) {
+        pistonStatus.classList.remove('ext');
+        pistonStatus.textContent = 'Intake: RETRACTED';
+    } else {
+        pistonStatus.classList.add('ext');
+        pistonStatus.textContent = 'Intake: EXTENDED';
     }
 });
 

@@ -13,15 +13,30 @@ body > * {
     width: 2.5vw;
 }
 
-.camera-refresh {
+.camera-refresh1 {
     height: 29px;
     position: absolute;
     top: 30px;
+    left: 22%;
 }
 
-.camera-options {
+.camera-refresh2 {
+    height: 29px;
     position: absolute;
-    top: 40vw;
+    top: 30px;
+    right: 22%;
+}
+
+.camera-options1 {
+    position: absolute;
+    top: 38vw;
+    left: 20%;
+}
+
+.camera-options2 {
+    position: absolute;
+    top: 38vw;
+    right: 20%
 }
 
 /* Timer */
@@ -40,7 +55,7 @@ body > * {
 #launcher-rpm {
     font-size: 10vh;
     position: absolute;
-    bottom: 50px;
+    bottom: 5px;
 }
 
 #target-svg {
@@ -149,6 +164,7 @@ body > * {
     height: 100%;
     padding: 0px;
 }
+
 .gutter-horizontal {
     background-color: rgba(255, 255, 255, 0.7);
     cursor: ew-resize;
@@ -350,6 +366,16 @@ body.enabled > svg {
 
 #compressor-status.off {
     color: rgb(230, 0, 0);
+}
+
+#piston-status {
+    color: rgb(230, 0, 0);
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#piston-status.ext {
+    color: rgb(0, 235, 0);
 }
 
 .back-camera {
