@@ -279,7 +279,7 @@ NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
     }
 });
 
-NetworkTables.addKeyListener('/robot/piston_status', (_, value, __) => {
+NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) => {
     if (value) {
         pistonStatus.classList.remove('ext');
         pistonStatus.textContent = 'Intake: RETRACTED';
