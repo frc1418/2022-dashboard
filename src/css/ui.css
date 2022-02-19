@@ -56,6 +56,7 @@ body > * {
     font-size: 10vh;
     position: absolute;
     bottom: 5px;
+    left: 160px;
 }
 
 #target-svg {
@@ -378,6 +379,12 @@ body.enabled > svg {
 
 #piston-status.ext {
     color: rgb(0, 235, 0);
+}
+
+#label-launcher {
+    top: 87%;
+    left: 5px;
+    font-size: 30px;
 }
 
 .back-camera {

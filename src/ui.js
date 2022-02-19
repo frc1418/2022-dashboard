@@ -240,7 +240,7 @@ NetworkTables.addKeyListener('/components/launcher/filtered_rpm', (_, value, __)
     
     var target = NetworkTables.getValue('/components/launcher/target_rpm');
     var redDistance = 500;
-    launcherRPM.textContent = "Laucher: " + value + " RPM";
+    launcherRPM.textContent = value + " RPM";
 
     //sets text color to a color on an hsv gradient between red (0, 100, 90) and green (120, 100, 94)
     let [r, g, b] = sampleHSVGradient(target, redDistance, value)
