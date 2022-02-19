@@ -360,18 +360,20 @@ body.enabled > svg {
 
 #compressor-status {
     color: rgb(0, 235, 0);
-    margin-top: 10px;
-    font-size: 20px;
+    top: 75%;
+    left: 5px;
+    font-size: 30px;
 }
 
 #compressor-status.off {
-    color: rgb(230, 0, 0);
+    color: rgb(255, 0, 0);
 }
 
 #piston-status {
-    color: rgb(230, 0, 0);
-    margin-top: 10px;
-    font-size: 20px;
+    color: rgb(255, 0, 0);
+    top: 81%;
+    left: 5px;
+    font-size: 30px;
 }
 
 #piston-status.ext {
