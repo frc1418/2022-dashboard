@@ -30,13 +30,13 @@ body > * {
 .camera-options1 {
     position: absolute;
     top: 38vw;
-    left: 20%;
+    left: 25%;
 }
 
 .camera-options2 {
     position: absolute;
     top: 38vw;
-    right: 20%
+    right: 25%
 }
 
 /* Timer */
@@ -55,7 +55,7 @@ body > * {
 #launcher-rpm {
     font-size: 10vh;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     left: 160px;
 }
 
