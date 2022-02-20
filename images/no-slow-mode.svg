@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <defs>
-    <style bx:fonts="ABeeZee">@import url(https://fonts.googleapis.com/css2?family=ABeeZee%3Aital%2Cwght%400%2C400%3B1%2C400&amp;display=swap);</style>
-  </defs>
   <path d="M 243.055 98.908 L 416.744 399.57 L 69.365 399.57 L 243.055 98.908 Z" style="stroke: rgb(0, 0, 0); fill: rgb(145, 145, 145);" bx:shape="triangle 69.365 98.908 347.379 300.662 0.5 0 1@5111cb95"/>
   <path d="M 243.167 123.052 L 391.635 388.606 L 94.699 388.606 L 243.167 123.052 Z" style="stroke: rgb(0, 0, 0); fill: rgb(88, 88, 88);" bx:shape="triangle 94.699 123.052 296.936 265.554 0.5 0 1@fbcf2811"/>
-  <text style="fill: rgb(255, 255, 255); font-family: ABeeZee; font-size: 27.7px; white-space: pre;" transform="matrix(1.862412, 0, 0, 1.862412, -194.804138, -247.583282)"><tspan x="196.308" y="288.811">SLOW </tspan><tspan x="196.308" dy="1em">​</tspan><tspan>MODE</tspan></text>
 </svg>
-<!-- not working -->
+<!-- maybe not working -->
