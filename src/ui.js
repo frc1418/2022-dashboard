@@ -48,7 +48,7 @@ const camera1OptionSelect = document.getElementById("camera1-options-select");
 const camera2OptionSelect = document.getElementById("camera2-options-select");
 const compressorStatus = document.getElementById('compressor-status');
 const pistonStatus = document.getElementById('piston-status');
-const slowMode = document.getElementById('slow-mode');
+const slowMode = document.getElementById('slow-mode-icon');
 
 cameras[cameraStream1].setParent(document.getElementById('camera1'));
 cameras[cameraStream2].setParent(document.getElementById('camera2'));
@@ -293,10 +293,10 @@ NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) =
 NetworkTables.addKeyListener('/component/drive/slow_mode', (_, value, __) => {
     if (value) {
         slowMode.classList.remove('on');
-        slowMode.textContent = 'Slow Mode: OFF';
+        // slowMode.textContent = 'Slow Mode: OFF';
     } else {
         slowMode.classList.add('on');
-        slowMode.textContent = 'Slow Mode: ON';
+        // slowMode.textContent = 'Slow Mode: ON';
     }
 });
 

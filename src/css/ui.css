@@ -379,7 +379,7 @@ body.enabled > svg {
 
 #piston-status {
     color: rgb(255, 0, 0);
-    top: 70%;
+    top: 82%;
     left: 5px;
     font-size: 30px;
 }
@@ -388,15 +388,35 @@ body.enabled > svg {
     color: rgb(0, 235, 0);
 }
 
-#slow-mode {
-    color: rgb(255, 0, 0);
-    top: 82%;
-    left: 5px;
+#slow-mode-label{
+    color: rgba(255, 255, 255);
+    left: 47.2%;
+    bottom: 7%;
     font-size: 30px;
 }
 
-#slow-mode.on {
-    color: rgb(0, 235, 0);
+#slow-mode-label2{
+    color: rgba(255, 255, 255);
+    left: 47.2%;
+    bottom: 3%;
+    font-size: 30px;
+}
+
+#slow-mode-icon{
+    bottom: -6%;
+    left: 42.7%;
+    width: 15%;
+    opacity: 1;
+}
+
+#slow-mode-icon.on{
+    opacity: 0;
+}
+
+#slow-mode-icon2{
+    bottom: -6%;
+    left: 42.7%;
+    width: 15%;
 }
 
 #label-launcher {
