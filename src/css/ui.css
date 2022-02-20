@@ -395,7 +395,7 @@ body.enabled > svg {
     font-size: 30px;
 }
 
-#slow-mode.onn {
+#slow-mode.on {
     color: rgb(0, 235, 0);
 }
 

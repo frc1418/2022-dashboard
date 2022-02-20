@@ -292,10 +292,10 @@ NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) =
 
 NetworkTables.addKeyListener('/component/drive/slow_mode', (_, value, __) => {
     if (value) {
-        slowMode.classList.remove('onn');
+        slowMode.classList.remove('on');
         slowMode.textContent = 'Slow Mode: OFF';
     } else {
-        slowMode.classList.add('onn');
+        slowMode.classList.add('on');
         slowMode.textContent = 'Slow Mode: ON';
     }
 });
