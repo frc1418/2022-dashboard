@@ -1,6 +1,6 @@
-// const ipc = require('electron').ipcRenderer;
-const electron = require('electron');
-const ipc = electron.ipcRenderer;
+const ipc = require('electron').ipcRenderer;
+// const electron = require('electron');
+// const ipc = electron.ipcRenderer;
 
 var NetworkTables =
     (() => {
