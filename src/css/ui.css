@@ -388,28 +388,28 @@ body.enabled > svg {
     color: rgb(0, 235, 0);
 }
 
-#slow-mode-label{
+#slow-mode-label {
     color: rgba(255, 255, 255);
     left: 47.2%;
     bottom: 7%;
     font-size: 30px;
 }
 
-#slow-mode-label2{
+#slow-mode-label2 {
     color: rgba(255, 255, 255);
     left: 47.2%;
     bottom: 3%;
     font-size: 30px;
 }
 
-#slow-mode-icon{
+#slow-mode-icon {
     bottom: -6%;
     left: 42.7%;
     width: 15%;
     opacity: 1;
 }
 
-#slow-mode-icon.on{
+#slow-mode-icon.on {
     opacity: 0;
 }
 
