@@ -291,11 +291,7 @@ NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) =
 });
 
 NetworkTables.addKeyListener('/component/drive/slow_mode', (_, value, __) => {
-    if (value) {
-        slowMode.classList.remove('on');
-    } else {
-        slowMode.classList.add('on');
-    }
+    slowMode.classList.toggle('on', value);
 });
 
 function displayClass(classname, visible) {
