@@ -272,15 +272,15 @@ NetworkTables.addKeyListener('/limelight/ty', (_, value, __) => {
     pitchAngleText.style.fill = 'rgb(' + r + ' , ' + g + ' , ' + b + ')'
 });
 
-NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
-    if (value) {
-        compressorStatus.classList.remove('off');
-        compressorStatus.textContent = 'Compressor: ON';
-    } else {
-        compressorStatus.classList.add('off');
-        compressorStatus.textContent = 'Compressor: OFF';
-    }
-});
+// NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
+//     if (value) {
+//         compressorStatus.classList.remove('off');
+//         compressorStatus.textContent = 'Compressor: ON';
+//     } else {
+//         compressorStatus.classList.add('off');
+//         compressorStatus.textContent = 'Compressor: OFF';
+//     }
+// });
 
 NetworkTables.addKeyListener('/components/intake/piston_extended', (_, value, __) => {
     if (value) {
