@@ -1,3 +1,4 @@
+const { systemPreferences } = require('electron');
 const Split = require('split.js');
 
 let sizes = localStorage.getItem('split-sizes');
@@ -48,6 +49,7 @@ const camera1OptionSelect = document.getElementById("camera1-options-select");
 const camera2OptionSelect = document.getElementById("camera2-options-select");
 const compressorStatus = document.getElementById('compressor-status');
 const pistonStatus = document.getElementById('piston-status');
+const slowMode = document.getElementById('slow-mode-icon');
 
 cameras[cameraStream1].setParent(document.getElementById('camera1'));
 cameras[cameraStream2].setParent(document.getElementById('camera2'));
@@ -129,49 +131,50 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-messageButton.addEventListener('click', () => {
-    var messages = [
-        "You're doing great!",
-        "I think we're winning!",
-        "Go 1418!",
-        "Our robot is the best!",
-        "I think I love you",
-        "Detroit, here we come!",
-        "Use the force and win!",
-        "Do, there is neither do not nor try",
-        "Maybe we should just ziptie this program",
-        "Robotics is fun!",
-        "Robotics IS a sport!",
-        "Victory we most certainly have!",
-        "History goes to the (vae) Victors!",
-        "Bobby is totally the best captain! (he's the only one)",
-        "Steven is our Knight is shining armor!",
-        "Jesus loves you",
-        "You're a terrible driver!",
-        "Andrew is the only real programmer",
-        "It's not my fault the cameras don't work",
-        "This message is brought to you by Cyclebar!",
-        "This message is brought to you by Pizzaria Orso!",
-        "This message is brought to you by Flippn' Pizza!",
-        "This message is brought to you by Baroody Camps!",
-        "This message is brought to you by Dixie!",
-        "Our robot is more structurally sound than our school!",
-        "The librarians hate us, but that's okay!",
-        "Yahweh loves you",
-        "The Fitness Gram Pacer Test is a multistage aerobic capacity test...",
-        "This dashboard has been invaded by goose!",
-        "iBoss knows where you live!",
-        "Shrek is love, Shrek is life.",
-        "614's autonomous is awesome!"
-    ]
-    messageText.textContent = messages[getRandomInt(0, messages.length-1)];
-    messageButton.style.visibility = "hidden"
-    setTimeout(() => {
-        messageText.textContent = "";
-        messageButton.style.visibility = "visible"
-    }, 1000)
+// messageButton.addEventListener('click', () => {
+//     var messages = [
+//         "You're doing great!",
+//         "I think we're winning!",
+//         "Go 1418!",
+//         "Our robot is the best!",
+//         "I think I love you",
+//         "Detroit, here we come!",
+//         "Use the force and win!",
+//         "Do, there is neither do not nor try",
+//         "Robotics is fun!",
+//         "Robotics IS a sport!",
+//         "Victory we most certainly have!",
+//         "History goes to the (vae) Victors!",
+//         "Sarah is totally the best captain!",
+//         "Sofia is totally the best captain!",
+//         "Tahaseen is totally the best captain!",
+//         "Steven is our Knight is shining armor!",
+//         "Jesus loves you",
+//         "You're a terrible driver!",
+//         "Andrew is the only real programmer",
+//         "It's not my fault the cameras don't work",
+//         "This message is brought to you by Cyclebar!",
+//         "This message is brought to you by Pizzaria Orso!",
+//         "This message is brought to you by Flippn' Pizza!",
+//         "This message is brought to you by Baroody Camps!",
+//         "This message is brought to you by Dixie!",
+//         "Our robot is more structurally sound than our school!",
+//         "The librarians hate us, but that's okay!",
+//         "Yahweh loves you",
+//         "The Fitness Gram Pacer Test is a multistage aerobic capacity test...",
+//         "This dashboard has been invaded by goose!",
+//         "iBoss knows where you live!",
+//         "Shrek is love, Shrek is life.",
+//         "614's autonomous is awesome!"
+//     ]
+//     messageText.textContent = messages[getRandomInt(0, messages.length-1)];
+//     messageButton.style.visibility = "hidden"
+//     setTimeout(() => {
+//         messageText.textContent = "";
+//         messageButton.style.visibility = "visible"
+//     }, 1000)
 
-});
+// });
 
 NetworkTables.addKeyListener('/robot/mode', (_, value, __) => {
     toggleVisiblity(
@@ -240,7 +243,7 @@ NetworkTables.addKeyListener('/components/launcher/filtered_rpm', (_, value, __)
     
     var target = NetworkTables.getValue('/components/launcher/target_rpm');
     var redDistance = 500;
-    launcherRPM.textContent = value + " RPM";
+    launcherRPM.textContent = (-1 * value) + " RPM";
 
     //sets text color to a color on an hsv gradient between red (0, 100, 90) and green (120, 100, 94)
     let [r, g, b] = sampleHSVGradient(target, redDistance, value)
@@ -279,7 +282,7 @@ NetworkTables.addKeyListener('/robot/compressor_status', (_, value, __) => {
     }
 });
 
-NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) => {
+NetworkTables.addKeyListener('/components/intake/piston_extended', (_, value, __) => {
     if (value) {
         pistonStatus.classList.remove('ext');
         pistonStatus.textContent = 'Intake: RETRACTED';
@@ -287,6 +290,10 @@ NetworkTables.addKeyListener('/component/intake/piston_status', (_, value, __) =
         pistonStatus.classList.add('ext');
         pistonStatus.textContent = 'Intake: EXTENDED';
     }
+});
+
+NetworkTables.addKeyListener('/components/drivetrain/slow_mode', (_, value, __) => {
+    slowMode.classList.toggle('on', value);
 });
 
 function displayClass(classname, visible) {

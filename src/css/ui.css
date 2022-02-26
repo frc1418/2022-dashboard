@@ -30,13 +30,13 @@ body > * {
 .camera-options1 {
     position: absolute;
     top: 38vw;
-    left: 20%;
+    left: 25%;
 }
 
 .camera-options2 {
     position: absolute;
     top: 38vw;
-    right: 20%
+    right: 25%
 }
 
 /* Timer */
@@ -55,9 +55,16 @@ body > * {
 #launcher-rpm {
     font-size: 10vh;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     left: 160px;
 }
+
+/* #img-size{
+    height: 250;
+    width: 250;
+    bottom: 5px;
+    left: 50%;
+} */
 
 #target-svg {
     bottom: 0px;
@@ -361,7 +368,7 @@ body.enabled > svg {
 
 #compressor-status {
     color: rgb(0, 235, 0);
-    top: 75%;
+    top: 76%;
     left: 5px;
     font-size: 30px;
 }
@@ -372,7 +379,7 @@ body.enabled > svg {
 
 #piston-status {
     color: rgb(255, 0, 0);
-    top: 81%;
+    top: 82%;
     left: 5px;
     font-size: 30px;
 }
@@ -381,8 +388,39 @@ body.enabled > svg {
     color: rgb(0, 235, 0);
 }
 
+#slow-mode-label {
+    color: rgba(255, 255, 255);
+    left: 47.2%;
+    bottom: 7%;
+    font-size: 30px;
+}
+
+#slow-mode-label2 {
+    color: rgba(255, 255, 255);
+    left: 47.2%;
+    bottom: 3%;
+    font-size: 30px;
+}
+
+#slow-mode-icon {
+    bottom: -6%;
+    left: 42.7%;
+    width: 15%;
+    opacity: 1;
+}
+
+#slow-mode-icon.on {
+    opacity: 0;
+}
+
+#slow-mode-icon2{
+    bottom: -6%;
+    left: 42.7%;
+    width: 15%;
+}
+
 #label-launcher {
-    top: 87%;
+    top: 88%;
     left: 5px;
     font-size: 30px;
 }
@@ -436,4 +474,5 @@ body.enabled > svg {
     to {
         scale: 100%;
     }
+
 }
