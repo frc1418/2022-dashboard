@@ -413,10 +413,22 @@ body.enabled > svg {
     opacity: 0;
 }
 
-#slow-mode-icon2{
+#slow-mode-icon2 {
     bottom: -6%;
     left: 42.7%;
     width: 15%;
+}
+
+#climber-base {
+    bottom: -37%;
+    left: -12%;
+    width: 30%;
+}
+
+#climber-arm {
+    bottom: -54%;
+    left: -12%;
+    width: 30%;
 }
 
 #label-launcher {

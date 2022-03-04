@@ -50,6 +50,7 @@ const camera2OptionSelect = document.getElementById("camera2-options-select");
 const compressorStatus = document.getElementById('compressor-status');
 const pistonStatus = document.getElementById('piston-status');
 const slowMode = document.getElementById('slow-mode-icon');
+const arm = document.getElementById('climber-arm');
 
 cameras[cameraStream1].setParent(document.getElementById('camera1'));
 cameras[cameraStream2].setParent(document.getElementById('camera2'));
@@ -294,6 +295,12 @@ NetworkTables.addKeyListener('/components/intake/piston_extended', (_, value, __
 
 NetworkTables.addKeyListener('/components/drivetrain/slow_mode', (_, value, __) => {
     slowMode.classList.toggle('on', value);
+});
+
+NetworkTables.addKeyListener('/components/climber/climber_pos', (_, value, __) => {
+    // var target = NetworkTables.getValue('/components/climber/target_pos');
+    var bottom = -54.0;
+    arm.style.bottom = ""+(bottom+(value/5.5))+"%";
 });
 
 function displayClass(classname, visible) {
