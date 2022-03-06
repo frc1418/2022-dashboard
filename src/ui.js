@@ -298,9 +298,8 @@ NetworkTables.addKeyListener('/components/drivetrain/slow_mode', (_, value, __) 
 });
 
 NetworkTables.addKeyListener('/components/climber/climber_pos', (_, value, __) => {
-    // var target = NetworkTables.getValue('/components/climber/target_pos');
     var bottom = -54.0;
-    arm.style.bottom = ""+(bottom+(value/5.5))+"%";
+    arm.style.bottom = (bottom + (value / 5.5)) + '%';
 });
 
 function displayClass(classname, visible) {
