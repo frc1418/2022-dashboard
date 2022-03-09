@@ -21,12 +21,10 @@ class Connection extends EventEmitter {
 const connection = new Connection();
 
 const cameraLink1 = 'http://10.14.18.2:1181';
-const cameraLink2 = 'http://10.14.18.2:1182';
 const limelightLink = 'http://10.14.18.11:5801';
 
 const cameras = [
     new Camera(cameraLink1),
-    new Camera(cameraLink2),
     new Camera(limelightLink)
 ];
 
