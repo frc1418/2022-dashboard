@@ -20,16 +20,16 @@
   },
   "homepage": "https://github.com/frc1418/2022-dashboard#readme",
   "devDependencies": {
-    "electron": "^17.0.1",
+    "electron": "^17.1.2",
     "electron-packager": "^15.4.0",
-    "electron-winstaller": "^4.0.0",
-    "rcedit": "^2.1.0"
+    "electron-winstaller": "^5.0.0",
+    "rcedit": "^3.0.1"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "node": "^17.4.0",
+    "node": "^17.5.0",
     "requirejs": "^2.3.6",
-    "split.js": "^1.5.11",
-    "wpilib-nt-client": "^1.7.1"
+    "split.js": "^1.6.5",
+    "wpilib-nt-client": "^1.7.2"
   }
 }
