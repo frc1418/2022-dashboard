@@ -17,17 +17,19 @@ jobs:
       - name: Package Applications
         run: |
           npm run package-win
-          npm run package-mac
-      - name: Zip Applications
-        run: |
-          Compress-Archive ${{ github.workspace }}\dist\1418-dashboard-2022-darwin-x64 ${{ github.workspace }}\1418-dashboard-2022-darwin-x64.zip
       - name: Build Project Windows
         run: node create-windows-installer.js ${GITHUB_REF##*/}
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v1
+        with:
+          application_id: ${{ secrets.HELPER_BOT_ID }}
+          application_private_key: ${{ secrets.HELPER_BOT_PRIVATE_KEY }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -44,13 +46,3 @@ jobs:
           asset_path: ${{ github.workspace }}\Dashboard-Setup.exe
           asset_name: Dashboard-Setup-Windows.exe
           asset_content_type: application/vnd.microsoft.portable-executable
-      - name: Upload Release Asset MacOS
-        id: upload-release-asset-macos
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}\1418-dashboard-2022-darwin-x64.zip
-          asset_name: 1418-dashboard-2022-macos.zip
-          asset_content_type: application/zip

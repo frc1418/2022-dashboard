@@ -1,0 +1,33 @@
+on:
+  release:
+    types:
+      - created
+
+name: Create MacOS Release
+
+jobs:
+  build:
+    name: Create MacOS Release
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Package Applications
+        run: |
+          npm run package-mac
+      - name: Zip Applications
+        run: |
+          ls ${{ github.workspace }}/dist
+          tar -cf ${{ github.workspace }}/1418-dashboard-2022-darwin-x64.tgz -C ${{ github.workspace }}/dist/1418-dashboard-2022-darwin-x64 .
+      - name: Upload Release Asset MacOS
+        id: upload-release-asset-macos
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ github.workspace }}/1418-dashboard-2022-darwin-x64.tgz
+          asset_name: 1418-dashboard-2022-macos.zip
+          asset_content_type: application/zip
